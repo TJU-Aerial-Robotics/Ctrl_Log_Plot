@@ -1,6 +1,6 @@
 1. depends:
 
-    ubuntu 20.04 and qt (如果已安装ros, qt无需额外安装)
+    ubuntu 20.04 and qt5 (如果已安装ros, qt无需额外安装)
 
 2. build:
 ```
