@@ -18,16 +18,16 @@ LogPlot::LogPlot(QWidget *parent)
     ui->setupUi(this);
     // 构建所有label------------------
     color_list = {QColor("#D2042D"), QColor("#00008B"), QColor("#4666FF"),
-                  QColor("#FFA500"), QColor("#FF00FF"), QColor("#6082B6"),
-                  QColor("#00FFFF"), QColor("#40B5AD"), QColor("#FCF55F"), QColor("#71797E"),
+                  QColor("#FFA500"), QColor("#FF00FF"), QColor("#006DB0"),
+                  QColor("#00FFFF"), QColor("#40B5AD"), QColor("#FF7A00"), QColor("#71797E"),
 
                   QColor("#93C572"), QColor("#009E60"), QColor("#C2B280"),
-                  QColor("#DAA520"), QColor("#9F2B68"), QColor("#DA70D6"),
+                  QColor("#00FFFF"), QColor("#9F2B68"), QColor("#DA70D6"),
                   QColor("#800080"), QColor("#301934"), QColor("#E0B0FF"),
 
                   QColor("#71797E"), QColor("#D2042D"), QColor("#00008B"), 
-                  QColor("#FFA500"), QColor("#FF00FF"), QColor("#6082B6"),
-                  QColor("#00FFFF"), QColor("#40B5AD"), QColor("#FCF55F"),
+                  QColor("#009B7D"), QColor("#FF4F00"), QColor("#319177"),
+                  QColor("#5A4FCF"), QColor("#1164B4"), QColor("#FCF55F"),
 
                   QColor("#93C572"), QColor("#009E60"), QColor("#C2B280"),
                   QColor("#DAA520"), QColor("#9F2B68"), QColor("#DA70D6"),

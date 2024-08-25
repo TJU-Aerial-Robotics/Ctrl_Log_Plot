@@ -17,6 +17,6 @@ make
 
 3. example:
 
-4.TODO & bug：
+4. TODO & bug：
 
 the step response of position / velocity looks incorrect, but the programe works well for attitude control log...
