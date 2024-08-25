@@ -263,72 +263,84 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QCheckBox" name="des_px_2">
+           <widget class="QCheckBox" name="ana_px">
             <property name="text">
              <string>p(x)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_py_2">
+           <widget class="QCheckBox" name="ana_py">
             <property name="text">
              <string>p(y)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_pz_2">
+           <widget class="QCheckBox" name="ana_pz">
             <property name="text">
              <string>p(z)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_vx_2">
+           <widget class="QCheckBox" name="ana_vx">
             <property name="text">
              <string>v(x)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_vy_2">
+           <widget class="QCheckBox" name="ana_vy">
             <property name="text">
              <string>v(y)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_vz_2">
+           <widget class="QCheckBox" name="ana_vz">
             <property name="text">
              <string>v(z)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_ax_2">
+           <widget class="QCheckBox" name="ana_ax">
             <property name="text">
              <string>a(x)</string>
             </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_ay_2">
+           <widget class="QCheckBox" name="ana_ay">
             <property name="text">
              <string>a(y)</string>
             </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="des_az_2">
-            <property name="text">
-             <string>a(z)</string>
+            <property name="checkable">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="est_yaw_3">
+           <widget class="QCheckBox" name="ana_az">
+            <property name="text">
+             <string>a(z)</string>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="ana_yaw">
             <property name="text">
              <string>yaw</string>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -337,72 +349,75 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QCheckBox" name="des_px_3">
+           <widget class="QCheckBox" name="err_px">
             <property name="text">
              <string>p(x)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_py_3">
+           <widget class="QCheckBox" name="err_py">
             <property name="text">
              <string>p(y)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_pz_3">
+           <widget class="QCheckBox" name="err_pz">
             <property name="text">
              <string>p(z)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_vx_3">
+           <widget class="QCheckBox" name="err_vx">
             <property name="text">
              <string>v(x)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_vy_3">
+           <widget class="QCheckBox" name="err_vy">
             <property name="text">
              <string>v(y)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_vz_3">
+           <widget class="QCheckBox" name="err_vz">
             <property name="text">
              <string>v(z)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_ax_3">
+           <widget class="QCheckBox" name="err_ax">
             <property name="text">
              <string>a(x)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_ay_3">
+           <widget class="QCheckBox" name="err_ay">
             <property name="text">
              <string>a(y)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="des_az_3">
+           <widget class="QCheckBox" name="err_az">
             <property name="text">
              <string>a(z)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="est_yaw_4">
+           <widget class="QCheckBox" name="err_yaw">
             <property name="text">
              <string>yaw</string>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
