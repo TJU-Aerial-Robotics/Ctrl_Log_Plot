@@ -1,12 +1,13 @@
-1. depends:
+#### 1. depends:
 
     ubuntu 20.04 and qt5 (如果已安装ros, qt无需额外安装)
-
-2. build:
 
 ```
 pip install numpy scipy
 ```
+
+#### 2. build:
+
 
 ```
 cd build
@@ -15,8 +16,16 @@ make
 ./LogPlot
 ```
 
-3. example:
+#### 3. example:
 
-4. TODO & bug：
+pid log plot
+![pid log plot](./image/pid_log.png)
 
-the step response of position / velocity looks incorrect, but the programe works well for attitude control log...
+step response plot
+![response plot](./image/response.png)
+
+#### 4. TODO & bug：
+
+1. The current log is plotted based on the recorded order, because the labels of the laboratory's controllers are messy. They will be plotted by label soon.
+
+2. the step response of position / velocity looks incorrect, but the programe works well for attitude control log...
