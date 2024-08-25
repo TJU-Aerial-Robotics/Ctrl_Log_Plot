@@ -219,7 +219,7 @@ int AnalyzerInterface::runAnalyzer(const std::vector<double> &time_input, const 
     PyObject *time = PyArray_SimpleNewFromData(1, &size, NPY_DOUBLE, time_data);
     PyObject *gyro_rate = PyArray_SimpleNewFromData(1, &size, NPY_DOUBLE, gyro_rate_data);
     PyObject *gyro_setpoint = PyArray_SimpleNewFromData(1, &size, NPY_DOUBLE, gyro_setpoint_data);
-    double gyro_noise_thresh = 1;
+    double gyro_noise_thresh = 0;
     PyObject *pInstance = PyObject_CallObject(pClass, Py_BuildValue("(OOOd)", time, gyro_rate, gyro_setpoint, gyro_noise_thresh));
 
     if (pInstance == nullptr)

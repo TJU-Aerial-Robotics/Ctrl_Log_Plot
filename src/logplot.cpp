@@ -17,7 +17,7 @@ LogPlot::LogPlot(QWidget *parent)
 {
     ui->setupUi(this);
     // 构建所有label------------------
-    color_list = {QColor("#D2042D"), QColor("#00008B"), QColor("#FFEA00"),
+    color_list = {QColor("#D2042D"), QColor("#00008B"), QColor("#4666FF"),
                   QColor("#FFA500"), QColor("#FF00FF"), QColor("#6082B6"),
                   QColor("#00FFFF"), QColor("#40B5AD"), QColor("#FCF55F"), QColor("#71797E"),
 
