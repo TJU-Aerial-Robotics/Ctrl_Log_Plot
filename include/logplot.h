@@ -6,13 +6,14 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
-
+#include "pid_analyzer_interface.h"
 #include <QMainWindow>
 #include <QVector>
 #include <QDebug>
 #include <QFileDialog>
 #include <QTimer>
 #include "qcustomplot.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LogPlot; }
