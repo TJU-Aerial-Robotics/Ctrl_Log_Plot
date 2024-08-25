@@ -39,17 +39,34 @@ private:
 
     bool process_data(QString path);
 
+    template <typename T>
+    QVector<T> stdVector2qVector(const std::vector<T> &stdVec)
+    {
+        QVector<T> qVec;
+        qVec.reserve(stdVec.size()); // 预先分配足够的空间
+        for (const T &value : stdVec)
+        {
+            qVec.push_back(value);
+        }
+        return qVec;
+    }
+
     Ui::LogPlot *ui;
     QString folderPath;
-    int graph_num;
+    int normal_graph_num;
+    int response_graph_num;
     QVector<QColor> color_list;
     QVector<QString> label_list;
+
+    AnalyzerInterface analizer;
 
     bool data_ready{false}; // 等待数据读取完毕
     bool graph_changed{false};
     QVector<bool> is_plot;
     QVector<QVector<double>> all_data;
     QVector<double> time_x;
+    QVector<double> response_time;
+    QVector<double> response_ref;
     QVector<QCheckBox*> checkboxes;
 };
 #endif // NETWORKPLOT_H

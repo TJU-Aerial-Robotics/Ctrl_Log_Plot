@@ -6,35 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1103</width>
-    <height>573</height>
+    <width>1336</width>
+    <height>547</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>LogPlot</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="openButton">
-        <property name="text">
-         <string>Open</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="fileName"/>
-      </item>
-     </layout>
-    </item>
+   <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
-     <widget class="QCustomPlot" name="customPlot" native="true"/>
-    </item>
-    <item row="0" column="1" rowspan="2">
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="1">
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
@@ -47,11 +30,11 @@
          </font>
         </property>
         <property name="text">
-         <string>Ctrl Log Plot</string>
+         <string>Log Plot And Analysis</string>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="1" column="1">
        <spacer name="verticalSpacer_3">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -64,7 +47,7 @@
         </property>
        </spacer>
       </item>
-      <item>
+      <item row="2" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label_3">
@@ -76,7 +59,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Estimation</string>
+           <string>Estimate</string>
           </property>
          </widget>
         </item>
@@ -94,12 +77,40 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <pointsize>13</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Analysis</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <pointsize>13</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Error</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
-      <item>
+      <item row="3" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QCheckBox" name="est_px">
             <property name="text">
@@ -173,7 +184,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QCheckBox" name="des_px">
             <property name="text">
@@ -238,23 +249,168 @@
            </widget>
           </item>
           <item>
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
+           <widget class="QCheckBox" name="est_yaw_2">
+            <property name="text">
+             <string>yaw</string>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>88</width>
-              <height>17</height>
-             </size>
+            <property name="checkable">
+             <bool>false</bool>
             </property>
-           </spacer>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QCheckBox" name="des_px_2">
+            <property name="text">
+             <string>p(x)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_py_2">
+            <property name="text">
+             <string>p(y)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_pz_2">
+            <property name="text">
+             <string>p(z)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_vx_2">
+            <property name="text">
+             <string>v(x)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_vy_2">
+            <property name="text">
+             <string>v(y)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_vz_2">
+            <property name="text">
+             <string>v(z)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_ax_2">
+            <property name="text">
+             <string>a(x)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_ay_2">
+            <property name="text">
+             <string>a(y)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_az_2">
+            <property name="text">
+             <string>a(z)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="est_yaw_3">
+            <property name="text">
+             <string>yaw</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QCheckBox" name="des_px_3">
+            <property name="text">
+             <string>p(x)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_py_3">
+            <property name="text">
+             <string>p(y)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_pz_3">
+            <property name="text">
+             <string>p(z)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_vx_3">
+            <property name="text">
+             <string>v(x)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_vy_3">
+            <property name="text">
+             <string>v(y)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_vz_3">
+            <property name="text">
+             <string>v(z)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_ax_3">
+            <property name="text">
+             <string>a(x)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_ay_3">
+            <property name="text">
+             <string>a(y)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="des_az_3">
+            <property name="text">
+             <string>a(z)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="est_yaw_4">
+            <property name="text">
+             <string>yaw</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
        </layout>
       </item>
-      <item>
+      <item row="4" column="1">
        <spacer name="verticalSpacer_4">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -267,7 +423,7 @@
         </property>
        </spacer>
       </item>
-      <item>
+      <item row="5" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QPushButton" name="plotButton">
@@ -285,7 +441,7 @@
         </item>
        </layout>
       </item>
-      <item>
+      <item row="6" column="1">
        <spacer name="verticalSpacer_5">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -298,28 +454,34 @@
         </property>
        </spacer>
       </item>
-      <item>
+      <item row="7" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="openButton">
+          <property name="text">
+           <string>Open</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="fileName"/>
+        </item>
+       </layout>
+      </item>
+      <item row="7" column="1">
        <widget class="QPushButton" name="pushButton">
         <property name="text">
          <string>Close</string>
         </property>
        </widget>
       </item>
+      <item row="0" column="0" rowspan="7">
+       <widget class="QCustomPlot" name="customPlot" native="true"/>
+      </item>
      </layout>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1103</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <customwidgets>
   <customwidget>

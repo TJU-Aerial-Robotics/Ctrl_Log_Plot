@@ -1,10 +1,10 @@
 #include "pid_analyzer_interface.h"
+
 /*
     The original source code: https://github.com/Plasmatree/PID-Analyzer by Florian Melsheimer
 */
 
-// Function to convert a numpy array to std::vector
-std::vector<double> numpy_array_to_vector(PyObject *array)
+std::vector<double> AnalyzerInterface::numpy_array_to_vector(PyObject *array)
 {
     std::vector<double> result;
     if (PyArray_Check(array))
@@ -17,17 +17,15 @@ std::vector<double> numpy_array_to_vector(PyObject *array)
     return result;
 }
 
-int AnalyzerInterface(const std::vector<double> &time_input, const std::vector<double> &state_input, const std::vector<double> &setpoint_input,
-                      std::vector<double> &response_time_vec, std::vector<double> &response_step_vec)
+AnalyzerInterface::AnalyzerInterface()
 {
-    // Initialize the Python interpreter
     Py_Initialize();
 
-    // Initialize NumPy
-    import_array();
-
-    // PID Step Response Analysis Python Source Code
-    const char *python_code = R"(
+    if (!initialize_numpy())
+        std::cerr << "Failed to initialize NumPy!" << std::endl;
+    
+    // Define Python code to declare a class and its method
+    const char *pythonCode = R"(
 import numpy as np
 from scipy.interpolate import interp1d
 from scipy.ndimage import gaussian_filter1d
@@ -52,9 +50,9 @@ class Trace:
             'gyro': gyro_rate,
             'input': gyro_setpoint,
             }
-        self.time, self.data = time, data
-        self.gyro = gyro_rate       # The quad does
-        self.input = gyro_setpoint     # What the quad should do
+        self.time, self.data = self.equalize_data(time, data)
+        self.gyro = self.data['gyro']    # The quad does
+        self.input = self.data['input']  # What the quad should do
         self.dt = self.time[0]-self.time[1]
         self.data['time'] = self.time
         self.flen = self.stepcalc(self.time, Trace.framelen)        # array len corresponding to framelen in s
@@ -184,9 +182,30 @@ class Trace:
         return self.time_resp, self.resp_low[0]
 )";
 
-    // Execute the Python code to define the class
-    PyRun_SimpleString(python_code);
+    PyRun_SimpleString(pythonCode);
 
+    // Get reference to the Python class
+    PyObject *pName = PyUnicode_FromString("__main__");
+    pModule = PyImport_Import(pName);
+    Py_DECREF(pName);
+
+    if (pModule != nullptr)
+    {
+        PyObject *pDict = PyModule_GetDict(pModule);
+        pClass = PyDict_GetItemString(pDict, "Trace");
+
+        if (pClass == nullptr)
+            std::cerr << "Failed to get 'MyClass' from module dictionary." << std::endl;
+    }
+    else
+    {
+        std::cerr << "Failed to import module." << std::endl;
+    }
+}
+
+int AnalyzerInterface::runAnalyzer(const std::vector<double> &time_input, const std::vector<double> &state_input, const std::vector<double> &setpoint_input,
+                                   std::vector<double> &response_time_vec, std::vector<double> &response_step_vec)
+{
     npy_intp size = time_input.size();
     double *time_data = new double[size];
     double *gyro_rate_data = new double[size];
@@ -197,37 +216,11 @@ class Trace:
         gyro_rate_data[i] = state_input[i];
         gyro_setpoint_data[i] = setpoint_input[i];
     }
-
     PyObject *time = PyArray_SimpleNewFromData(1, &size, NPY_DOUBLE, time_data);
     PyObject *gyro_rate = PyArray_SimpleNewFromData(1, &size, NPY_DOUBLE, gyro_rate_data);
     PyObject *gyro_setpoint = PyArray_SimpleNewFromData(1, &size, NPY_DOUBLE, gyro_setpoint_data);
     double gyro_noise_thresh = 1;
-
-    // Import the Python module
-    PyObject *pName = PyUnicode_DecodeFSDefault("__main__");
-    PyObject *pModule = PyImport_Import(pName);
-    Py_DECREF(pName);
-
-    if (pModule == nullptr)
-    {
-        PyErr_Print();
-        std::cerr << "Failed to load the Python module" << std::endl;
-        return 1;
-    }
-
-    // Create an instance of MyClass
-    PyObject *pClass = PyObject_GetAttrString(pModule, "Trace");
-    if (pClass == nullptr)
-    {
-        PyErr_Print();
-        std::cerr << "Failed to get the MyClass" << std::endl;
-        Py_DECREF(pModule);
-        return 1;
-    }
-
     PyObject *pInstance = PyObject_CallObject(pClass, Py_BuildValue("(OOOd)", time, gyro_rate, gyro_setpoint, gyro_noise_thresh));
-    Py_DECREF(pClass);
-    Py_DECREF(pModule);
 
     if (pInstance == nullptr)
     {
@@ -235,70 +228,24 @@ class Trace:
         std::cerr << "Failed to create an instance of MyClass" << std::endl;
         return 1;
     }
-
-    // Call the get_gyro_rate_and_setpoint method
-    PyObject *pMethod = PyObject_GetAttrString(pInstance, "get_response");
-    if (pMethod && PyCallable_Check(pMethod))
+    PyObject *pResult = PyObject_CallMethod(pInstance, "get_response", NULL);
+    if (pResult)
     {
-        PyObject *pResult = PyObject_CallObject(pMethod, nullptr);
-        Py_DECREF(pMethod);
+        PyObject *response_time = PyTuple_GetItem(pResult, 0);
+        PyObject *response_step = PyTuple_GetItem(pResult, 1);
 
-        if (pResult)
-        {
-            PyObject *response_time = PyTuple_GetItem(pResult, 0);
-            PyObject *response_step = PyTuple_GetItem(pResult, 1);
+        // Convert numpy arrays to std::vector
+        response_time_vec = numpy_array_to_vector(response_time);
+        response_step_vec = numpy_array_to_vector(response_step);
 
-            // Convert numpy arrays to std::vector
-            response_time_vec = numpy_array_to_vector(response_time);
-            response_step_vec = numpy_array_to_vector(response_step);
-
-            // Print results
-            std::cout << "Gyro Rate: ";
-            for (double val : response_time_vec)
-            {
-                std::cout << val << " ";
-            }
-            std::cout << std::endl;
-
-            std::cout << "Gyro Setpoint: ";
-            for (double val : response_step_vec)
-            {
-                std::cout << val << " ";
-            }
-            std::cout << std::endl;
-
-            Py_DECREF(pResult);
-        }
-        else
-        {
-            PyErr_Print();
-            std::cerr << "Failed to call get_gyro_rate_and_setpoint" << std::endl;
-        }
+        Py_DECREF(pResult);
     }
     else
     {
         PyErr_Print();
-        std::cerr << "Failed to get the method get_gyro_rate_and_setpoint" << std::endl;
+        std::cerr << "Failed to call get_gyro_rate_and_setpoint" << std::endl;
     }
-
-    // Finalize the Python interpreter
-    Py_Finalize();
+    Py_DECREF(pInstance);
 
     return 0;
 }
-
-// int main(int argc, char const *argv[])
-// {
-//     std::vector<double> time_input, state_input, setpoint_input, out1, out2;
-//     time_input.resize(1000);
-//     state_input.resize(1000);
-//     setpoint_input.resize(1000);
-//     for (int i = 0; i < 1000; ++i)
-//     {
-//         time_input[i] = i * 0.02;
-//         state_input[i] = 20 * sin(time_input[i]);
-//         setpoint_input[i] = 20 * sin(time_input[i] + 0.2);
-//     }
-//     AnalyzerInterface(time_input, state_input, setpoint_input, out1, out2);
-//     return 0;
-// }
