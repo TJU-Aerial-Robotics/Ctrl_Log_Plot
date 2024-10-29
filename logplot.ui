@@ -17,22 +17,31 @@
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
-       <widget class="QLabel" name="label">
-        <property name="font">
-         <font>
-          <pointsize>25</pointsize>
-          <weight>75</weight>
-          <italic>true</italic>
-          <bold>true</bold>
-          <strikeout>false</strikeout>
-          <kerning>true</kerning>
-         </font>
+      <item row="4" column="1">
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
-        <property name="text">
-         <string>Log Plot And Analysis</string>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>13</height>
+         </size>
         </property>
-       </widget>
+       </spacer>
+      </item>
+      <item row="6" column="1">
+       <spacer name="verticalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>13</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item row="1" column="1">
        <spacer name="verticalSpacer_3">
@@ -47,66 +56,6 @@
         </property>
        </spacer>
       </item>
-      <item row="2" column="1">
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_3">
-          <property name="font">
-           <font>
-            <pointsize>13</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Estimate</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="font">
-           <font>
-            <pointsize>13</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Desired</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_5">
-          <property name="font">
-           <font>
-            <pointsize>13</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Analysis</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_4">
-          <property name="font">
-           <font>
-            <pointsize>13</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Error</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
       <item row="3" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
@@ -114,70 +63,73 @@
           <item>
            <widget class="QCheckBox" name="est_px">
             <property name="text">
-             <string>p(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_py">
             <property name="text">
-             <string>p(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_pz">
             <property name="text">
-             <string>p(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_vx">
             <property name="text">
-             <string>v(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_vy">
             <property name="text">
-             <string>v(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_vz">
             <property name="text">
-             <string>v(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_ax">
             <property name="text">
-             <string>a(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_ay">
             <property name="text">
-             <string>a(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_az">
             <property name="text">
-             <string>a(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="est_yaw">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
             <property name="text">
-             <string>yaw</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
@@ -188,159 +140,73 @@
           <item>
            <widget class="QCheckBox" name="des_px">
             <property name="text">
-             <string>p(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="des_py">
             <property name="text">
-             <string>p(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="des_pz">
             <property name="text">
-             <string>p(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="des_vx">
             <property name="text">
-             <string>v(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="des_vy">
             <property name="text">
-             <string>v(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="des_vz">
             <property name="text">
-             <string>v(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="des_ax">
             <property name="text">
-             <string>a(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="des_ay">
             <property name="text">
-             <string>a(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="des_az">
             <property name="text">
-             <string>a(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="est_yaw_2">
+           <widget class="QCheckBox" name="des_yaw">
             <property name="text">
-             <string>yaw</string>
+             <string>unused</string>
             </property>
             <property name="checkable">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QCheckBox" name="ana_px">
-            <property name="text">
-             <string>p(x)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_py">
-            <property name="text">
-             <string>p(y)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_pz">
-            <property name="text">
-             <string>p(z)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_vx">
-            <property name="text">
-             <string>v(x)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_vy">
-            <property name="text">
-             <string>v(y)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_vz">
-            <property name="text">
-             <string>v(z)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_ax">
-            <property name="text">
-             <string>a(x)</string>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_ay">
-            <property name="text">
-             <string>a(y)</string>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_az">
-            <property name="text">
-             <string>a(z)</string>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="ana_yaw">
-            <property name="text">
-             <string>yaw</string>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -351,73 +217,73 @@
           <item>
            <widget class="QCheckBox" name="err_px">
             <property name="text">
-             <string>p(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_py">
             <property name="text">
-             <string>p(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_pz">
             <property name="text">
-             <string>p(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_vx">
             <property name="text">
-             <string>v(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_vy">
             <property name="text">
-             <string>v(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_vz">
             <property name="text">
-             <string>v(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_ax">
             <property name="text">
-             <string>a(x)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_ay">
             <property name="text">
-             <string>a(y)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_az">
             <property name="text">
-             <string>a(z)</string>
+             <string>unused</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="err_yaw">
             <property name="text">
-             <string>yaw</string>
+             <string>unused</string>
             </property>
             <property name="checkable">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -425,18 +291,25 @@
         </item>
        </layout>
       </item>
-      <item row="4" column="1">
-       <spacer name="verticalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>13</height>
-         </size>
-        </property>
-       </spacer>
+      <item row="2" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+      </item>
+      <item row="7" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="openButton">
+          <property name="text">
+           <string>Open</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="fileName"/>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0" rowspan="7">
+       <widget class="QCustomPlot" name="customPlot" native="true"/>
       </item>
       <item row="5" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -456,33 +329,6 @@
         </item>
        </layout>
       </item>
-      <item row="6" column="1">
-       <spacer name="verticalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>13</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="7" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QPushButton" name="openButton">
-          <property name="text">
-           <string>Open</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="fileName"/>
-        </item>
-       </layout>
-      </item>
       <item row="7" column="1">
        <widget class="QPushButton" name="pushButton">
         <property name="text">
@@ -490,8 +336,22 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0" rowspan="7">
-       <widget class="QCustomPlot" name="customPlot" native="true"/>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>25</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+          <strikeout>false</strikeout>
+          <kerning>true</kerning>
+         </font>
+        </property>
+        <property name="text">
+         <string>Control Log Plotter</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
