@@ -188,6 +188,7 @@ bool LogPlot::process_data(QString file_path_)
         time_x.clear();
         all_data.resize(checkboxes.size());
         std::vector<std::string> label = temp[0];
+        QVector<QString> label_list_temp;
         QVector<QString> qlabel = stdVectorString2qVectorString(label);
         for (size_t i = 1; i < checkboxes.size() + 1; i++)
         {
@@ -195,7 +196,7 @@ bool LogPlot::process_data(QString file_path_)
             {
                 checkboxes[i - 1]->setCheckable(true);
                 checkboxes[i - 1]->setText(qlabel[i]);
-                label_list.push_back(qlabel[i]);
+                label_list_temp.push_back(qlabel[i]);
             }
             else
             {
@@ -221,6 +222,7 @@ bool LogPlot::process_data(QString file_path_)
         }
 
         all_data = real_data;
+        label_list = label_list_temp;
 
         return true;
     }
