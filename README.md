@@ -1,10 +1,16 @@
+### Description: Controller Log Plotter. 
+The data format can refer to the example_data or as the following. The content can be recorded freely for automatic recognition, but the first column must to be timestamp.
+```
+timestamp,est_px,est_py,est_pz,...
+1695219468850140796,-0.0063955,-0.0103323,-0.0541671,...
+1695219468850140896,-0.0063955,-0.0103323,-0.0541671,...
+..., ..., ..., ...
+```
+
 #### 1. depends:
 
     ubuntu 20.04 and qt5 (如果已安装ros, qt无需额外安装)
 
-```
-pip install numpy scipy
-```
 
 #### 2. build:
 
@@ -17,12 +23,8 @@ make
 ```
 
 #### 3. example:
-
-pid log plot
-![pid log plot](./image/pid_log.png)
-
-step response plot
-![response plot](./image/response.png)
+MPC log example:
+![example](image/latest_pic.png)
 
 #### issue may occur
 
@@ -31,9 +33,3 @@ step response plot
 
 **solution** " export PATH=/usr/lib/x86_64-linux-gnu/qt5/bin:$PATH
 ```
-
-#### 4. TODO & bug：
-
-1. The current log is plotted based on the recorded order, because the labels of the laboratory's controllers are messy. They will be plotted by label soon.
-
-2. the step response of position / velocity looks incorrect, but the programe works well for attitude control log...
